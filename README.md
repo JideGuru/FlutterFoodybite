@@ -3,6 +3,9 @@
 Flutter representation of a Restaurant app UI i found in Uplabs. 
 **It only consists of 2 screens**
 
+Star⭐ the repo if you like what you see😉.
+
+
 ## 📸 ScreenShots
 
 <img src="ss/1.png"/>
