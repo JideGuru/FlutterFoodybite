@@ -1,7 +1,9 @@
 # 🍔Foodybite [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Flutter representation of a Restaurant app UI i found in Uplabs. 
-**It only consists of 2 screens**
+**It only consists of 2 screens.**
+
+Star⭐ the repo if you like what you see😉.
 
 ## 📸 ScreenShots
 
