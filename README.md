@@ -6,8 +6,6 @@ Flutter representation of a Restaurant app UI i found in Uplabs.
 Star⭐ the repo if you like what you see😉.
 
 
-Star⭐ the repo if you like what you see😉.
-
 
 ## 📸 ScreenShots
 
