@@ -30,6 +30,13 @@ Star⭐ the repo if you like what you see😉.
 ## 🤓 Author(s)
 **Olusegun Festus Babajide**
 
+## ☕️  Donate
+
+Buy me a cup of Coffee😁
+
+| Mode | Link/Wallet|
+| ------| ------------|
+| Bitcoin | 3GrziPW6Gz6S5mXo2EsiYpafW8vXVq5Rbv|
 
 ## Getting Started
 
