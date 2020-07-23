@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_foodybite/util/const.dart';
 
 class SlideItem extends StatefulWidget {
-
   final String img;
   final String title;
   final String address;
@@ -14,8 +13,7 @@ class SlideItem extends StatefulWidget {
     @required this.title,
     @required this.address,
     @required this.rating,
-  })
-      : super(key: key);
+  }) : super(key: key);
 
   @override
   _SlideItemState createState() => _SlideItemState();
@@ -30,14 +28,15 @@ class _SlideItemState extends State<SlideItem> {
         height: MediaQuery.of(context).size.height / 2.9,
         width: MediaQuery.of(context).size.width / 1.2,
         child: Card(
-          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(10.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           elevation: 3.0,
           child: Column(
             children: <Widget>[
               Stack(
                 children: <Widget>[
                   Container(
-                    height: MediaQuery.of(context).size.height/3.7,
+                    height: MediaQuery.of(context).size.height / 3.7,
                     width: MediaQuery.of(context).size.width,
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
@@ -50,12 +49,12 @@ class _SlideItemState extends State<SlideItem> {
                       ),
                     ),
                   ),
-
                   Positioned(
                     top: 6.0,
                     right: 6.0,
                     child: Card(
-                      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(4.0)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4.0)),
                       child: Padding(
                         padding: EdgeInsets.all(2.0),
                         child: Row(
@@ -65,7 +64,6 @@ class _SlideItemState extends State<SlideItem> {
                               color: Constants.ratingBG,
                               size: 10,
                             ),
-
                             Text(
                               " ${widget.rating} ",
                               style: TextStyle(
@@ -77,15 +75,15 @@ class _SlideItemState extends State<SlideItem> {
                       ),
                     ),
                   ),
-
                   Positioned(
                     top: 6.0,
                     left: 6.0,
                     child: Card(
-                      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(3.0)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(3.0)),
                       child: Padding(
                         padding: EdgeInsets.all(4.0),
-                        child:Text(
+                        child: Text(
                           " OPEN ",
                           style: TextStyle(
                             fontSize: 10,
@@ -96,13 +94,9 @@ class _SlideItemState extends State<SlideItem> {
                       ),
                     ),
                   ),
-
-
                 ],
               ),
-
               SizedBox(height: 7.0),
-
               Padding(
                 padding: EdgeInsets.only(left: 15.0),
                 child: Container(
@@ -117,9 +111,7 @@ class _SlideItemState extends State<SlideItem> {
                   ),
                 ),
               ),
-
               SizedBox(height: 7.0),
-
               Padding(
                 padding: EdgeInsets.only(left: 15.0),
                 child: Container(
@@ -133,9 +125,7 @@ class _SlideItemState extends State<SlideItem> {
                   ),
                 ),
               ),
-
               SizedBox(height: 10.0),
-
             ],
           ),
         ),
