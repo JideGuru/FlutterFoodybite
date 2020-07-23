@@ -42,22 +42,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/food1.jpeg
-    - assets/food2.jpeg
-    - assets/food3.jpeg
-    - assets/food4.jpeg
-    - assets/food5.jpeg
-    - assets/food6.jpeg
-    - assets/food7.jpeg
-    - assets/food8.jpeg
-    - assets/food9.jpeg
-    - assets/food10.jpeg
-    - assets/food11.jpeg
-    - assets/food12.jpg
-    - assets/cm1.jpeg
-    - assets/cm2.jpeg
-    - assets/cm3.jpeg
-    - assets/cm4.jpeg
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

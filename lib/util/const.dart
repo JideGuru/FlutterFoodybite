@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-class Constants{
 
+class Constants {
   static String appName = "Foody Bite";
 
   //Colors for theme
@@ -15,20 +15,17 @@ class Constants{
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
-    accentColor:  lightAccent,
+    accentColor: lightAccent,
     cursorColor: lightAccent,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
-        title: TextStyle(
+        headline6: TextStyle(
           color: darkBG,
           fontSize: 18.0,
           fontWeight: FontWeight.w800,
         ),
       ),
-//      iconTheme: IconThemeData(
-//        color: lightAccent,
-//      ),
     ),
   );
 
@@ -41,17 +38,12 @@ class Constants{
     cursorColor: darkAccent,
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
-        title: TextStyle(
+        headline6: TextStyle(
           color: lightBG,
           fontSize: 18.0,
           fontWeight: FontWeight.w800,
         ),
       ),
-//      iconTheme: IconThemeData(
-//        color: darkAccent,
-//      ),
     ),
   );
-
-
 }

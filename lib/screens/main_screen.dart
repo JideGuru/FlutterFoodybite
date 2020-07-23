@@ -10,11 +10,9 @@ class _MainScreenState extends State<MainScreen> {
   PageController _pageController;
   int _page = 0;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
@@ -27,13 +25,12 @@ class _MainScreenState extends State<MainScreen> {
           Home(),
         ],
       ),
-
       bottomNavigationBar: BottomAppBar(
         child: new Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            SizedBox(width:7),
+            SizedBox(width: 7),
             IconButton(
               icon: Icon(
                 Icons.home,
@@ -41,25 +38,19 @@ class _MainScreenState extends State<MainScreen> {
               ),
               color: _page == 0
                   ? Theme.of(context).accentColor
-                  : Theme
-                  .of(context)
-                  .textTheme.caption.color,
-              onPressed: ()=>_pageController.jumpToPage(0),
+                  : Theme.of(context).textTheme.caption.color,
+              onPressed: () => _pageController.jumpToPage(0),
             ),
-
             IconButton(
-              icon:Icon(
+              icon: Icon(
                 Icons.label,
                 size: 24.0,
               ),
               color: _page == 1
                   ? Theme.of(context).accentColor
-                  : Theme
-                  .of(context)
-                  .textTheme.caption.color,
-              onPressed: ()=>_pageController.jumpToPage(1),
+                  : Theme.of(context).textTheme.caption.color,
+              onPressed: () => _pageController.jumpToPage(1),
             ),
-
             IconButton(
               icon: Icon(
                 Icons.add,
@@ -68,12 +59,9 @@ class _MainScreenState extends State<MainScreen> {
               ),
               color: _page == 2
                   ? Theme.of(context).accentColor
-                  : Theme
-                  .of(context)
-                  .textTheme.caption.color,
-              onPressed: ()=>_pageController.jumpToPage(2),
+                  : Theme.of(context).textTheme.caption.color,
+              onPressed: () => _pageController.jumpToPage(2),
             ),
-
             IconButton(
               icon: Icon(
                 Icons.notifications,
@@ -81,12 +69,9 @@ class _MainScreenState extends State<MainScreen> {
               ),
               color: _page == 3
                   ? Theme.of(context).accentColor
-                  : Theme
-                  .of(context)
-                  .textTheme.caption.color,
-              onPressed: ()=>_pageController.jumpToPage(3),
+                  : Theme.of(context).textTheme.caption.color,
+              onPressed: () => _pageController.jumpToPage(3),
             ),
-
             IconButton(
               icon: Icon(
                 Icons.person,
@@ -94,20 +79,15 @@ class _MainScreenState extends State<MainScreen> {
               ),
               color: _page == 4
                   ? Theme.of(context).accentColor
-                  : Theme
-                  .of(context)
-                  .textTheme.caption.color,
-              onPressed: ()=>_pageController.jumpToPage(4),
+                  : Theme.of(context).textTheme.caption.color,
+              onPressed: () => _pageController.jumpToPage(4),
             ),
-
-            SizedBox(width:7),
+            SizedBox(width: 7),
           ],
         ),
         color: Theme.of(context).primaryColor,
         shape: CircularNotchedRectangle(),
-
       ),
-
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -115,7 +95,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Icon(
           Icons.add,
         ),
-        onPressed: ()=>_pageController.jumpToPage(2),
+        onPressed: () => _pageController.jumpToPage(2),
       ),
     );
   }

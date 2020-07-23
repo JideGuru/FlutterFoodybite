@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/util/const.dart';
 import 'package:flutter_foodybite/util/restaurants.dart';
 import 'package:flutter_foodybite/widgets/trending_item.dart';
 
@@ -20,15 +19,12 @@ class _TrendingState extends State<Trending> {
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios
-          ),
-          onPressed: ()=>Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
-
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10.0,0,10.0,0),
+        padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
             Card(
@@ -49,10 +45,14 @@ class _TrendingState extends State<Trending> {
                     contentPadding: EdgeInsets.all(10.0),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
-                      borderSide: BorderSide(color: Colors.white,),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white,),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     hintText: "Search..",
@@ -74,15 +74,12 @@ class _TrendingState extends State<Trending> {
                 ),
               ),
             ),
-
-
             SizedBox(height: 10.0),
-
             ListView.builder(
               primary: false,
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: restaurants == null ? 0 :restaurants.length,
+              itemCount: restaurants == null ? 0 : restaurants.length,
               itemBuilder: (BuildContext context, int index) {
                 Map restaurant = restaurants[index];
 
@@ -94,9 +91,7 @@ class _TrendingState extends State<Trending> {
                 );
               },
             ),
-
             SizedBox(height: 10.0),
-
           ],
         ),
       ),

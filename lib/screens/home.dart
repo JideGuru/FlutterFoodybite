@@ -1,17 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_foodybite/screens/trending.dart';
 import 'package:flutter_foodybite/util/categories.dart';
 import 'package:flutter_foodybite/util/friends.dart';
 import 'package:flutter_foodybite/util/restaurants.dart';
 import 'package:flutter_foodybite/widgets/slide_item.dart';
-import 'package:flutter_foodybite/widgets/trending_item.dart';
 
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
+class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home> {
   final TextEditingController _searchControl = new TextEditingController();
 
   @override
@@ -20,7 +21,11 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
     return Scaffold(
       appBar: PreferredSize(
         child: Padding(
-          padding: EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
+          padding: EdgeInsets.only(
+            top: Platform.isAndroid ? 30.0 : 50.0,
+            left: 10.0,
+            right: 10.0,
+          ),
           child: Card(
             elevation: 6.0,
             child: Container(
@@ -39,10 +44,14 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                   contentPadding: EdgeInsets.all(10.0),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
-                    borderSide: BorderSide(color: Colors.white,),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white,),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                    ),
                     borderRadius: BorderRadius.circular(5.0),
                   ),
                   hintText: "Search..",
@@ -71,7 +80,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10.0,0,10.0,0),
+        padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
@@ -82,29 +91,30 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                 Text(
                   "Trending Restaurants",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 20,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-
-                FlatButton(
-                  child: Text(
-                    "See all (43)",
-                    style: TextStyle(
+                Flexible(
+                  child: FlatButton(
+                    child: Text(
+                      "See all (43)",
+                      style: TextStyle(
 //                      fontSize: 22,
 //                      fontWeight: FontWeight.w800,
-                      color: Theme.of(context).accentColor,
-                    ),
-                  ),
-                  onPressed: (){
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context){
-                          return Trending();
-                        },
+                        color: Theme.of(context).accentColor,
                       ),
-                    );
-                  },
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (BuildContext context) {
+                            return Trending();
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
@@ -113,13 +123,13 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
 
             //Horizontal List here
             Container(
-              height: MediaQuery.of(context).size.height/2.4,
+              height: MediaQuery.of(context).size.height / 2.4,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 primary: false,
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: restaurants == null ? 0 :restaurants.length,
+                itemCount: restaurants == null ? 0 : restaurants.length,
                 itemBuilder: (BuildContext context, int index) {
                   Map restaurant = restaurants[index];
 
@@ -138,18 +148,16 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
 
             SizedBox(height: 10.0),
 
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   "Category",
                   style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-
                 FlatButton(
                   child: Text(
                     "See all (9)",
@@ -159,7 +167,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                       color: Theme.of(context).accentColor,
                     ),
                   ),
-                  onPressed: (){
+                  onPressed: () {
 //                    Navigator.of(context).push(
 //                      MaterialPageRoute(
 //                        builder: (BuildContext context){
@@ -176,12 +184,12 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
 
             //Horizontal List here
             Container(
-              height: MediaQuery.of(context).size.height/6,
+              height: MediaQuery.of(context).size.height / 6,
               child: ListView.builder(
                 primary: false,
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: categories == null ? 0:categories.length,
+                itemCount: categories == null ? 0 : categories.length,
                 itemBuilder: (BuildContext context, int index) {
                   Map cat = categories[index];
 
@@ -193,11 +201,10 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                         children: <Widget>[
                           Image.asset(
                             cat["img"],
-                            height: MediaQuery.of(context).size.height/6,
-                            width: MediaQuery.of(context).size.height/6,
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.height / 6,
                             fit: BoxFit.cover,
                           ),
-
                           Container(
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -212,16 +219,13 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                                 // stops: [0.0, 0.1],
                               ),
                             ),
-                            height: MediaQuery.of(context).size.height/6,
-                            width: MediaQuery.of(context).size.height/6,
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.height / 6,
                           ),
-
-
                           Center(
-
                             child: Container(
-                              height: MediaQuery.of(context).size.height/6,
-                              width: MediaQuery.of(context).size.height/6,
+                              height: MediaQuery.of(context).size.height / 6,
+                              width: MediaQuery.of(context).size.height / 6,
                               padding: EdgeInsets.all(1),
                               constraints: BoxConstraints(
                                 minWidth: 20,
@@ -240,7 +244,6 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                               ),
                             ),
                           ),
-
                         ],
                       ),
                     ),
@@ -261,7 +264,6 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-
                 FlatButton(
                   child: Text(
                     "See all (59)",
@@ -271,7 +273,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                       color: Theme.of(context).accentColor,
                     ),
                   ),
-                  onPressed: (){
+                  onPressed: () {
 //                    Navigator.of(context).push(
 //                      MaterialPageRoute(
 //                        builder: (BuildContext context){
@@ -292,7 +294,7 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
                 primary: false,
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: friends == null ? 0:friends.length,
+                itemCount: friends == null ? 0 : friends.length,
                 itemBuilder: (BuildContext context, int index) {
                   String img = friends[index];
 
@@ -310,17 +312,12 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin<Home>{
             ),
 
             SizedBox(height: 30.0),
-
-
           ],
         ),
       ),
     );
-
   }
 
   @override
   bool get wantKeepAlive => true;
-
-
 }
