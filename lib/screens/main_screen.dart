@@ -10,6 +10,14 @@ class _MainScreenState extends State<MainScreen> {
   PageController _pageController;
   int _page = 0;
 
+  List icons = [
+    Icons.home,
+    Icons.label,
+    Icons.add,
+    Icons.notifications,
+    Icons.person,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,71 +25,19 @@ class _MainScreenState extends State<MainScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: <Widget>[
-          Home(),
-          Home(),
-          Home(),
-          Home(),
-          Home(),
-        ],
+        children: List.generate(5, (index) => Home()),
       ),
       bottomNavigationBar: BottomAppBar(
-        child: new Row(
+        child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             SizedBox(width: 7),
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                size: 24.0,
-              ),
-              color: _page == 0
-                  ? Theme.of(context).accentColor
-                  : Theme.of(context).textTheme.caption.color,
-              onPressed: () => _pageController.jumpToPage(0),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.label,
-                size: 24.0,
-              ),
-              color: _page == 1
-                  ? Theme.of(context).accentColor
-                  : Theme.of(context).textTheme.caption.color,
-              onPressed: () => _pageController.jumpToPage(1),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.add,
-                size: 24.0,
-                color: Theme.of(context).primaryColor,
-              ),
-              color: _page == 2
-                  ? Theme.of(context).accentColor
-                  : Theme.of(context).textTheme.caption.color,
-              onPressed: () => _pageController.jumpToPage(2),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.notifications,
-                size: 24.0,
-              ),
-              color: _page == 3
-                  ? Theme.of(context).accentColor
-                  : Theme.of(context).textTheme.caption.color,
-              onPressed: () => _pageController.jumpToPage(3),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.person,
-                size: 24.0,
-              ),
-              color: _page == 4
-                  ? Theme.of(context).accentColor
-                  : Theme.of(context).textTheme.caption.color,
-              onPressed: () => _pageController.jumpToPage(4),
-            ),
+            buildTabIcon(0),
+            buildTabIcon(1),
+            buildTabIcon(2),
+            buildTabIcon(3),
+            buildTabIcon(4),
             SizedBox(width: 7),
           ],
         ),
@@ -120,5 +76,29 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       this._page = page;
     });
+  }
+
+  buildTabIcon(int index) {
+    if (index == 2) {
+      return IconButton(
+        icon: Icon(
+          icons[index],
+          size: 24.0,
+          color: Colors.transparent,
+        ),
+        onPressed: null,
+      );
+    } else {
+      return IconButton(
+        icon: Icon(
+          icons[index],
+          size: 24.0,
+        ),
+        color: _page == index
+            ? Theme.of(context).accentColor
+            : Theme.of(context).textTheme.caption.color,
+        onPressed: () => _pageController.jumpToPage(index),
+      );
+    }
   }
 }

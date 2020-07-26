@@ -40,8 +40,8 @@ class _SlideItemState extends State<SlideItem> {
                     width: MediaQuery.of(context).size.width,
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
+                        topLeft: Radius.circular(10.0),
+                        topRight: Radius.circular(10.0),
                       ),
                       child: Image.asset(
                         "${widget.img}",
@@ -67,7 +67,7 @@ class _SlideItemState extends State<SlideItem> {
                             Text(
                               " ${widget.rating} ",
                               style: TextStyle(
-                                fontSize: 10,
+                                fontSize: 10.0,
                               ),
                             ),
                           ],
@@ -86,7 +86,7 @@ class _SlideItemState extends State<SlideItem> {
                         child: Text(
                           " OPEN ",
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 10.0,
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
@@ -104,7 +104,7 @@ class _SlideItemState extends State<SlideItem> {
                   child: Text(
                     "${widget.title}",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w800,
                     ),
                     textAlign: TextAlign.left,
@@ -119,7 +119,7 @@ class _SlideItemState extends State<SlideItem> {
                   child: Text(
                     "${widget.address}",
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
