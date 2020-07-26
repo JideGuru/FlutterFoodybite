@@ -62,12 +62,12 @@ class _TrendingItemState extends State<TrendingItem> {
                             Icon(
                               Icons.star,
                               color: Constants.ratingBG,
-                              size: 10,
+                              size: 10.0,
                             ),
                             Text(
                               " ${widget.rating} ",
                               style: TextStyle(
-                                fontSize: 10,
+                                fontSize: 10.0,
                               ),
                             ),
                           ],
@@ -86,7 +86,7 @@ class _TrendingItemState extends State<TrendingItem> {
                         child: Text(
                           " OPEN ",
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 10.0,
                             color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
@@ -104,7 +104,7 @@ class _TrendingItemState extends State<TrendingItem> {
                   child: Text(
                     "${widget.title}",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w800,
                     ),
                     textAlign: TextAlign.left,
@@ -119,7 +119,7 @@ class _TrendingItemState extends State<TrendingItem> {
                   child: Text(
                     "${widget.address}",
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.0,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
