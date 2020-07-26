@@ -1,38 +1,33 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_foodybite/screens/trending.dart';
 import 'package:flutter_foodybite/util/categories.dart';
 import 'package:flutter_foodybite/util/friends.dart';
 import 'package:flutter_foodybite/util/restaurants.dart';
 import 'package:flutter_foodybite/widgets/category_item.dart';
+import 'package:flutter_foodybite/widgets/search_card.dart';
 import 'package:flutter_foodybite/widgets/slide_item.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  final TextEditingController _searchControl = new TextEditingController();
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSearchBar(),
+      appBar: buildSearchBar(context),
       body: Padding(
         padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
-            buildCategoryRow('Trending Restaurants'),
+            buildCategoryRow('Trending Restaurants', context),
             SizedBox(height: 10.0),
-            buildRestaurantList(),
+            buildRestaurantList(context),
             SizedBox(height: 10.0),
-            buildCategoryRow('Category'),
+            buildCategoryRow('Category', context),
             SizedBox(height: 10.0),
-            buildCategoryList(),
+            buildCategoryList(context),
             SizedBox(height: 20.0),
-            buildCategoryRow('Friends'),
+            buildCategoryRow('Friends', context),
             SizedBox(height: 10.0),
             buildFriendsList(),
             SizedBox(height: 30.0),
@@ -42,7 +37,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  buildCategoryRow(String category) {
+  buildCategoryRow(String category, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -60,13 +55,22 @@ class _HomeState extends State<Home> {
               color: Theme.of(context).accentColor,
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return Trending();
+                },
+              ),
+            );
+          },
         ),
       ],
     );
   }
 
-  buildSearchBar() {
+  buildSearchBar(BuildContext context) {
     return PreferredSize(
       child: Padding(
         padding: EdgeInsets.only(
@@ -74,53 +78,7 @@ class _HomeState extends State<Home> {
           left: 10.0,
           right: 10.0,
         ),
-        child: Card(
-          elevation: 6.0,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(5.0),
-              ),
-            ),
-            child: TextField(
-              style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black,
-              ),
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(10.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-                hintText: "Search..",
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ),
-                suffixIcon: Icon(
-                  Icons.filter_list,
-                  color: Colors.black,
-                ),
-                hintStyle: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.black,
-                ),
-              ),
-              maxLines: 1,
-              controller: _searchControl,
-            ),
-          ),
-        ),
+        child: SearchCard(),
       ),
       preferredSize: Size(
         MediaQuery.of(context).size.width,
@@ -129,7 +87,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  buildCategoryList() {
+  buildCategoryList(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height / 6,
       child: ListView.builder(
@@ -148,7 +106,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  buildRestaurantList() {
+  buildRestaurantList(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height / 2.4,
       width: MediaQuery.of(context).size.width,
