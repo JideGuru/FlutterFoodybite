@@ -26,6 +26,7 @@ Star⭐ the repo if you like what you see😉.
 * Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
 * A little knowledge of Dart and Flutter
 * A brain to think 🤓🤓
+* And a bunch of fingers to type :) 
 
 ## 🤓 Author(s)
 **Olusegun Festus Babajide** [![Twitter Follow](https://img.shields.io/twitter/follow/iamjideguru.svg?style=social)](https://twitter.com/iamjideguru)
