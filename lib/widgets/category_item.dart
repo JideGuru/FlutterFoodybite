@@ -8,7 +8,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 10.0),
+      padding: const EdgeInsets.only(right: 10.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
         child: Stack(
@@ -40,7 +40,7 @@ class CategoryItem extends StatelessWidget {
               child: Container(
                 height: MediaQuery.of(context).size.height / 6,
                 width: MediaQuery.of(context).size.height / 6,
-                padding: EdgeInsets.all(1),
+                padding: const EdgeInsets.all(1),
                 constraints: BoxConstraints(
                   minWidth: 20,
                   minHeight: 20,
