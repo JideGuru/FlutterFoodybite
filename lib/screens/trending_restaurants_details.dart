@@ -34,7 +34,7 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,22 +55,15 @@ class _ProductScreenState extends State<ProductScreen> {
               Row(
                 children: [
                   Icon(
-                    Icons.location_on_outlined,
+                    Icons.star,
                     color: Colors.amber,
+                    size: 18,
                   ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Flexible(
-                    child: Text(
-                      '${widget.address}',
-                      style: GoogleFonts.poppins(fontSize: 16),
-                    ),
-                  ),
+                  Text('${widget.rating}'),
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Text('Popular Food',
                   style: GoogleFonts.poppins(
