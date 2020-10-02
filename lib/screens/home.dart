@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
         ),
         FlatButton(
           child: Text(
-            "See all (9)",
+            "See all (${category.length})",
             style: TextStyle(
               color: Theme.of(context).accentColor,
             ),
