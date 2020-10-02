@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: buildSearchBar(context),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+        padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
@@ -119,7 +119,7 @@ class Home extends StatelessWidget {
           Map restaurant = restaurants[index];
 
           return Padding(
-            padding: EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 10.0),
             child: SlideItem(
               img: restaurant["img"],
               title: restaurant["title"],
@@ -144,7 +144,7 @@ class Home extends StatelessWidget {
           String img = friends[index];
 
           return Padding(
-            padding: EdgeInsets.only(right: 5.0),
+            padding: const EdgeInsets.only(right: 5.0),
             child: CircleAvatar(
               backgroundImage: AssetImage(
                 img,
