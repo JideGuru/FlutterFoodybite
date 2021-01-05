@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_foodybite/screens/categories.dart';
 import 'package:flutter_foodybite/screens/trending.dart';
 import 'package:flutter_foodybite/util/categories.dart';
 import 'package:flutter_foodybite/util/friends.dart';
@@ -19,7 +20,7 @@ class Home extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             SizedBox(height: 20.0),
-            buildCategoryRow('Trending Restaurants', context),
+            buildRestaurantRow('Trending Restaurants', context),
             SizedBox(height: 10.0),
             buildRestaurantList(context),
             SizedBox(height: 10.0),
@@ -34,6 +35,39 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  buildRestaurantRow(String restaurant, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          "$restaurant",
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        FlatButton(
+          child: Text(
+            "See all (9)",
+            style: TextStyle(
+              color: Theme.of(context).accentColor,
+            ),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return Trending();
+                },
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 
@@ -60,7 +94,7 @@ class Home extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (BuildContext context) {
-                  return Trending();
+                  return Categories();
                 },
               ),
             );
