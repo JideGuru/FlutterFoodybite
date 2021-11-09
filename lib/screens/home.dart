@@ -13,27 +13,34 @@ import 'package:flutter_foodybite/widgets/slide_item.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: buildSearchBar(context),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
-        child: ListView(
-          children: <Widget>[
-            buildSearchBar(context),
-            SizedBox(height: 20.0),
-            buildRestaurantRow('Trending Restaurants', context),
-            SizedBox(height: 10.0),
-            buildRestaurantList(context),
-            SizedBox(height: 10.0),
-            buildCategoryRow('Category', context),
-            SizedBox(height: 10.0),
-            buildCategoryList(context),
-            SizedBox(height: 20.0),
-            buildCategoryRow('Friends', context),
-            SizedBox(height: 10.0),
-            buildFriendsList(),
-            SizedBox(height: 30.0),
-          ],
+    return GestureDetector(
+      onTap: (){
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if(!currentFocus.hasPrimaryFocus){
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
+          child: ListView(
+            children: <Widget>[
+              buildSearchBar(context),
+              SizedBox(height: 20.0),
+              buildRestaurantRow('Trending Restaurants', context),
+              SizedBox(height: 10.0),
+              buildRestaurantList(context),
+              SizedBox(height: 10.0),
+              buildCategoryRow('Category', context),
+              SizedBox(height: 10.0),
+              buildCategoryList(context),
+              SizedBox(height: 20.0),
+              buildCategoryRow('Friends', context),
+              SizedBox(height: 10.0),
+              buildFriendsList(),
+              SizedBox(height: 30.0),
+            ],
+          ),
         ),
       ),
     );
@@ -107,7 +114,7 @@ class Home extends StatelessWidget {
 
   buildSearchBar(BuildContext context) {
     return Container(
-        margin: EdgeInsets.fromLTRB(10, MediaQuery.of(context).viewPadding.top, 10, 0),
+        margin: EdgeInsets.fromLTRB(10, 5, 10, 0),
         child: SearchCard()
     );
   }
