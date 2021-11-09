@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_foodybite/screens/add.dart';
 import 'package:flutter_foodybite/screens/home.dart';
+import 'package:flutter_foodybite/screens/label.dart';
+import 'package:flutter_foodybite/screens/profile.dart';
+
+import 'notifications.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -18,6 +23,14 @@ class _MainScreenState extends State<MainScreen> {
     Icons.person,
   ];
 
+  List pages = [
+    Home(),
+    Label(),
+    Add(),
+    Notifications(),
+    Profile(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,20 +38,19 @@ class _MainScreenState extends State<MainScreen> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         onPageChanged: onPageChanged,
-        children: List.generate(5, (index) => Home()),
+        children: List.generate(5, (index) =>  pages[index] ),
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            SizedBox(width: 7),
+            // SizedBox(width: 7),
             buildTabIcon(0),
             buildTabIcon(1),
-            buildTabIcon(2),
             buildTabIcon(3),
             buildTabIcon(4),
-            SizedBox(width: 7),
+            // SizedBox(width: 7),
           ],
         ),
         color: Theme.of(context).primaryColor,
@@ -56,9 +68,9 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  void navigationTapped(int page) {
-    _pageController.jumpToPage(page);
-  }
+ // void navigationTapped(int page) {
+ //    _pageController.jumpToPage(page);
+ //  }
 
   @override
   void initState() {
@@ -79,26 +91,18 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   buildTabIcon(int index) {
-    if (index == 2) {
-      return IconButton(
-        icon: Icon(
-          icons[index],
-          size: 24.0,
-          color: Colors.transparent,
+      return Container(
+        margin: EdgeInsets.fromLTRB( index == 3 ? 30 : 0, 0,  index == 1 ? 30 : 0, 0),
+        child: IconButton(
+          icon: Icon(
+            icons[index],
+            size: 24.0,
+          ),
+          color: _page == index
+              ? Theme.of(context).accentColor
+              : Theme.of(context).textTheme.caption.color,
+          onPressed: () => _pageController.jumpToPage(index),
         ),
-        onPressed: null,
       );
-    } else {
-      return IconButton(
-        icon: Icon(
-          icons[index],
-          size: 24.0,
-        ),
-        color: _page == index
-            ? Theme.of(context).accentColor
-            : Theme.of(context).textTheme.caption.color,
-        onPressed: () => _pageController.jumpToPage(index),
-      );
-    }
   }
 }
