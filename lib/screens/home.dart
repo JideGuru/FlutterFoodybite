@@ -14,11 +14,12 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildSearchBar(context),
+      // appBar: buildSearchBar(context),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
         child: ListView(
           children: <Widget>[
+            buildSearchBar(context),
             SizedBox(height: 20.0),
             buildRestaurantRow('Trending Restaurants', context),
             SizedBox(height: 10.0),
@@ -105,19 +106,9 @@ class Home extends StatelessWidget {
   }
 
   buildSearchBar(BuildContext context) {
-    return PreferredSize(
-      child: Padding(
-        padding: EdgeInsets.only(
-          top: Platform.isAndroid ? 30.0 : 50.0,
-          left: 10.0,
-          right: 10.0,
-        ),
-        child: SearchCard(),
-      ),
-      preferredSize: Size(
-        MediaQuery.of(context).size.width,
-        60.0,
-      ),
+    return Container(
+        margin: EdgeInsets.fromLTRB(10, MediaQuery.of(context).viewPadding.top, 10, 0),
+        child: SearchCard()
     );
   }
 
