@@ -10,9 +10,12 @@ class _SearchCardState extends State<SearchCard> {
   bool _hasText = false;
 
   void _onTextChanged() {
-    setState(() {
-      _hasText = _searchControl.text.isNotEmpty;
-    });
+    final hasTextNow = _searchControl.text.isNotEmpty;
+    if (hasTextNow != _hasText) {
+      setState(() {
+        _hasText = hasTextNow;
+      });
+    }
   }
 
   @override
@@ -63,17 +66,20 @@ class _SearchCardState extends State<SearchCard> {
               Icons.search,
               color: Colors.black,
             ),
-            suffixIcon: IconButton(
-              icon: Icon(
-                _hasText ? Icons.clear : Icons.filter_list,
-                color: Colors.black,
-              ),
-              onPressed: _hasText
-                  ? () {
+            suffixIcon: _hasText
+                ? IconButton(
+                    icon: Icon(
+                      Icons.clear,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
                       _searchControl.clear();
-                    }
-                  : null,
-            ),
+                    },
+                  )
+                : Icon(
+                    Icons.filter_list,
+                    color: Colors.black,
+                  ),
             hintStyle: TextStyle(
               fontSize: 15.0,
               color: Colors.black,
